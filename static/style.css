@@ -1,0 +1,325 @@
+        :root {
+            --primary: #6A1B9A;
+            --secondary: #D500F9;
+            --accent: #00B8D4;
+            --dark: #121212;
+            --darker: #0A0A0A;
+            --light-text: #E0E0E0;
+        }
+        
+        body {
+            background-color: var(--dark);
+            background-image: url('https://a.storyblok.com/f/178900/1127x634/d659f6e172/7c83036969d3bbe666dac59847855f361597156516_main.png/m/filters:quality(95)format(webp)');
+            color: var(--light-text);
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Kanit', sans-serif;
+            letter-spacing: 0.05em;
+        }
+        
+        .app-container {
+            overflow-x: hidden;
+        }
+        
+        .hero-banner {
+            min-height: 85vh;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(10,10,10,0.9)), url('https://cdn.pixabay.com/photo/2017/08/01/00/38/man-2562357_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .hero-banner::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--dark), transparent);
+        }
+        
+        .logo-container {
+            position: relative;
+            text-shadow: 0 0 20px rgba(213, 0, 249, 0.5);
+        }
+        
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 4rem;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-card {
+            transition: all 0.3s ease;
+            background-color: rgba(26, 26, 26, 0.8);
+            border-left: 4px solid var(--primary);
+            height: 180px;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(213, 0, 249, 0.3);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .character-grid {
+            display: none;
+            transition: all 0.5s ease;
+        }
+        
+        .character-card {
+            background-color: rgba(26, 26, 26, 0.8);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid var(--primary);
+            overflow: hidden;
+        }
+        
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(213, 0, 249, 0.2);
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .character-img {
+            height: 280px;
+            object-fit: cover;
+            object-position: top center;
+            transition: all 0.5s ease;
+        }
+        
+        .character-card:hover .character-img {
+            transform: scale(1.05);
+        }
+        
+        .character-detail {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--darker);
+            z-index: 1000;
+            transition: all 0.5s ease;
+            overflow-y: auto;
+        }
+        
+        .character-thumbnail {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+        
+        .character-thumbnail:hover, .character-thumbnail.active {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .videos-grid {
+            display: none;
+            transition: all 0.5s ease;
+        }
+        
+        .video-card {
+            background-color: rgba(26, 26, 26, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 184, 212, 0.2);
+        }
+        
+        .video-frame {
+            aspect-ratio: 16/9;
+            width: 100%;
+        }
+        
+        /* Modo oscuro */
+        .dark-mode-toggle {
+            width: 50px;
+            height: 25px;
+            border-radius: 15px;
+            background-color: var(--dark);
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .toggle-indicator {
+            width: 18px;
+            height: 18px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100vh;
+            background-color: var(--darker);
+            z-index: 1001;
+            transition: all 0.4s ease;
+            padding-top: 70px;
+        }
+        
+        .mobile-menu.open {
+            left: 0;
+            box-shadow: 5px 0 20px rgba(0,0,0,0.5);
+        }
+        
+        .hamburger {
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--light-text);
+            border-radius: 9px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+        
+        .hamburger span:nth-child(2), .hamburger span:nth-child(3) {
+            top: 9px;
+        }
+        
+        .hamburger span:nth-child(4) {
+            top: 18px;
+        }
+        
+        .hamburger.open span:nth-child(1) {
+            top: 9px;
+            width: 0%;
+            left: 50%;
+        }
+        
+        .hamburger.open span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        .hamburger.open span:nth-child(4) {
+            top: 9px;
+            width: 0%;
+            left: 50%;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Animacion */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(213, 0, 249, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(213, 0, 249, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(213, 0, 249, 0);
+            }
+        }
+        
+        /* Energia maldita efectos */
+        .cursed-energy {
+            position: relative;
+        }
+        
+        .cursed-energy::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            animation: energyPulse 3s infinite;
+            opacity: 0;
+        }
+        
+        @keyframes energyPulse {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 2.5rem;
+            }
+            
+            .nav-card {
+                height: 150px;
+            }
+            
+            .character-detail {
+                width: 100%;
+            }
+            
+            .character-img {
+                height: 220px;
+            }
+        }

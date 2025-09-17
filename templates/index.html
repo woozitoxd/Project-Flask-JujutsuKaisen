@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sitio web oficial de Jujutsu Kaisen - Descubre personajes, videos y el mundo del anime más popular">
+    <meta name="keywords" content="Jujutsu Kaisen, anime, Yuji Itadori, Sukuna, Gojo Satoru, MAPPA">
+    <title>Jujutsu Kaisen | Portal Oficial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:wght@400;700&family=Roboto:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Bar (incluye nav desde partial) -->
+        <header class="fixed top-0 left-0 w-full bg-opacity-80 bg-black backdrop-filter backdrop-blur-md z-50">
+            {% include 'partials/nav.html' %}
+        </header>
+        
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
+        
+        <!-- Banner -->
+        <section class="hero-banner flex items-center justify-center pt-20 pb-10">
+            <div class="container mx-auto px-4 z-10 text-center">
+                <div class="logo-container mb-8">
+                    <h1 class="logo-text mb-4">JUJUTSU KAISEN</h1>
+                    <p class="text-xl md:text-2xl text-gray-300 italic">La batalla contra las maldiciones continúa</p>
+                </div>
+                <div class="mt-12 pulse inline-block">
+                    <a href="javascript:void(0)" class="bg-gradient-to-r from-purple-700 to-blue-500 text-white px-8 py-3 rounded-lg font-bold tracking-wide hover:from-purple-600 hover:to-blue-400 transition">VER AHORA</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Introduction -->
+        <section class="py-16 bg-black">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl mb-8 font-bold text-purple-400">SOBRE LA SERIE</h2>
+                    <p class="text-gray-300 text-lg mb-6">
+                        En un mundo donde las maldiciones nacen de las emociones negativas de los humanos, Yuji Itadori, un estudiante de preparatoria con habilidades físicas excepcionales, se une a una organización secreta de hechiceros para eliminar a un poderoso objeto maldito: el dedo de Ryomen Sukuna.
+                    </p>
+                    <p class="text-gray-300 text-lg">
+                        Tras un incidente con sus amigos, Yuji ingiere el dedo para protegerlos, convirtiéndose en el recipiente de Sukuna, el "Rey de las Maldiciones". Ahora Yuji debe ingresar a la Escuela de Jujutsu para aprender a controlar este poder y encontrar los otros dedos de Sukuna, todo mientras lucha contra peligrosas maldiciones.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Navigation Cards -->
+        <section class="py-12 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Characters Card -->
+                    <div class="nav-card rounded-lg p-6 flex items-center justify-between cursor-pointer" id="character-card">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-purple-400">Perfiles de Personajes</h3>
+                            <p class="text-gray-400">Conoce a los estudiantes de hechicería y las maldiciones</p>
+                        </div>
+                        <div class="text-5xl text-purple-300">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Videos Card -->
+                    <div class="nav-card rounded-lg p-6 flex items-center justify-between cursor-pointer" id="videos-card">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-blue-400">Videos y Trailers</h3>
+                            <p class="text-gray-400">Mira avances, clips y momentos destacados</p>
+                        </div>
+                        <div class="text-5xl text-blue-300">
+                            <i class="fas fa-film"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Characters Section -->
+        <section class="character-grid py-16 bg-gray-900" id="character-section">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl mb-12 font-bold text-center text-purple-400">PERSONAJES</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {% for character in characters %}
+                    <div class="character-card rounded-lg overflow-hidden cursor-pointer" data-character="{{ character.id }}">
+                        <div class="overflow-hidden">
+                            <img src="{{ url_for('static', filename='img/' ~ character.image) }}" alt="{{ character.name }}">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-1">{{ character.name }}</h3>
+                            <p class="text-sm text-gray-400">{{ character.subtitle }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        
+        <!-- Videos Section -->
+        <section class="videos-grid py-16 bg-black" id="videos-section">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl mb-12 font-bold text-center text-blue-400">VIDEOS & TRAILERS</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {% for video in videos %}
+                    <div class="video-card rounded-lg overflow-hidden">
+                        <div class="video-frame">
+                            <iframe width="100%" height="100%" src="{{ video.url }}" title="{{ video.title }}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold mb-2">{{ video.title }}</h3>
+                            <p class="text-sm text-gray-400">{{ video.description }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="py-12 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-6 md:mb-0">
+                        <h2 class="text-2xl font-bold mb-4">
+                            <span class="text-purple-400">JUJUTSU</span> <span class="text-blue-400">KAISEN</span>
+                        </h2>
+                        <p class="text-gray-400">© 2025 MAPPA / Todos los derechos reservados</p>
+                    </div>
+                    
+                    <div class="flex space-x-6">
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-purple-400 transition">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-purple-400 transition">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-purple-400 transition">
+                            <i class="fab fa-youtube text-2xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-purple-400 transition">
+                            <i class="fab fa-discord text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between">
+                    <div class="flex flex-col md:flex-row md:space-x-8">
+                        <a href="javascript:void(0)" class="mb-3 md:mb-0 text-gray-400 hover:text-purple-400 transition">Términos de uso</a>
+                        <a href="javascript:void(0)" class="mb-3 md:mb-0 text-gray-400 hover:text-purple-400 transition">Política de privacidad</a>
+                        <a href="javascript:void(0)" class="mb-3 md:mb-0 text-gray-400 hover:text-purple-400 transition">Contacto</a>
+                    </div>
+                    
+                    <div class="mt-4 md:mt-0">
+                        <p class="text-sm text-gray-500">Basado en el manga de Gege Akutami</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Panel de Detalles de Personaje -->
+        <div id="character-detail" class="fixed top-0 right-0 w-full md:w-1/3 h-full bg-gray-900 shadow-lg z-50 transform translate-x-full transition-transform duration-300">
+            <p class="listaCharacters" style="display:none;">{{ characters | tojson | safe }}</p>
+            <script>
+                const charactersList = JSON.parse(document.querySelector('.listaCharacters').textContent);
+                const characterData = {};
+                const staticPath = "{{ url_for('static', filename='img/') }}";
+                
+                charactersList.forEach(character => {
+                    characterData[character.id] = {
+                        name: character.name,
+                        age: character.age,
+                        type: character.type,
+                        grade: character.grade,
+                        affiliation: character.affiliation,
+                        technique: character.technique,
+                        image: staticPath + character.image,
+                        bio: character.bio,
+                        moments: character.moments
+                    };
+                });
+                
+                console.log(characterData);
+            </script>
+        </div>
+    </div>
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
