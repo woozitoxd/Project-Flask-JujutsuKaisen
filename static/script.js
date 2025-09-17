@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+
         document.querySelector('.character-name').textContent = character.name;
         document.querySelector('.character-age').textContent = character.age;
         document.querySelector('.character-type').textContent = character.type;
@@ -105,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.character-technique').textContent = character.technique;
         document.querySelector('.character-detail-img').src = character.image;
         document.querySelector('.character-detail-img').alt = character.name;
+        document.querySelector('.character-detail-img').src = character.image_detail;
 
         // Biografía
         const bioContainer = document.querySelector('.bio-container');

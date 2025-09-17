@@ -161,30 +161,49 @@
         
         <!-- Panel de Detalles de Personaje -->
         <div id="character-detail" class="fixed top-0 right-0 w-full md:w-1/3 h-full bg-gray-900 shadow-lg z-50 transform translate-x-full transition-transform duration-300">
+                
+                <!-- Botón de cerrar -->
+            <button class="close-detail absolute top-4 right-4 text-white text-2xl font-bold">&times;</button>
+    
             <p class="listaCharacters" style="display:none;">{{ characters | tojson | safe }}</p>
-            <script>
-                const charactersList = JSON.parse(document.querySelector('.listaCharacters').textContent);
-                const characterData = {};
-                const staticPath = "{{ url_for('static', filename='img/') }}";
-                
-                charactersList.forEach(character => {
-                    characterData[character.id] = {
-                        name: character.name,
-                        age: character.age,
-                        type: character.type,
-                        grade: character.grade,
-                        affiliation: character.affiliation,
-                        technique: character.technique,
-                        image: staticPath + character.image,
-                        bio: character.bio,
-                        moments: character.moments
-                    };
-                });
-                
-                console.log(characterData);
-            </script>
+                <div class="p-6 overflow-y-auto h-full">
+                        <h2 class="character-name text-2xl font-bold text-purple-400 mb-2"></h2>
+                        <img width="300" height="200" class="character-detail-img w-full rounded-lg mb-4" src="" alt="">
+                        <p><strong>Edad:</strong> <span class="character-age"></span></p>
+                        <p><strong>Tipo:</strong> <span class="character-type"></span></p>
+                        <p><strong>Grado:</strong> <span class="character-grade"></span></p>
+                        <p><strong>Afiliación:</strong> <span class="character-affiliation"></span></p>
+                        <p><strong>Técnica:</strong> <span class="character-technique"></span></p>
+
+                        <div class="bio-container mt-4"></div>
+
+                        <h3 class="text-xl font-bold text-purple-400 mt-6 mb-2">Momentos</h3>
+                        <ul class="character-moments list-disc pl-6"></ul>
+                    </div>
+
+                <script>
+                    const charactersList = JSON.parse(document.querySelector('.listaCharacters').textContent);
+                    const characterData = {};
+                    const staticPath = "{{ url_for('static', filename='img/') }}";
+                    
+                    charactersList.forEach(character => {
+                        characterData[character.id] = {
+                            name: character.name,
+                            age: character.age,
+                            type: character.type,
+                            grade: character.grade,
+                            affiliation: character.affiliation,
+                            technique: character.technique,
+                            image_detail: staticPath + character.image_detail,
+                            bio: character.bio,
+                            moments: character.moments
+                        };
+                    });
+                    
+                    console.log(characterData);
+                </script>
+            </div>
         </div>
-    </div>
 </body>
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>
