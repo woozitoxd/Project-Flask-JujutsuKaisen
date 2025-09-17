@@ -5,7 +5,6 @@ app = Flask(__name__)
 
 # Datos que se mandan a la plantilla
 character_data = {
-    # Tu diccionario original
 }
 
 characters = [
@@ -165,9 +164,9 @@ videos = [
         "url": "https://www.youtube.com/embed/1tk1pqwrOys"
     },
     {
-        "title": "Trailer oficial",
-        "description": "Trailer de lanzamiento",
-        "url": "https://youtu.be/embed/aPBUUJbrAWo"
+        "title": "Opening 2 - 'Specialz'",
+        "description": "Trailer Season 2",
+        "url": "https://www.youtube.com/embed/5yb2N3pnztU?list=RD5yb2N3pnztU"
     }
 ]
 
