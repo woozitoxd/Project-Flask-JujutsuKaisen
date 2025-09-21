@@ -1,53 +1,114 @@
-        :root {
-            --primary: #6A1B9A;
-            --secondary: #D500F9;
-            --accent: #00B8D4;
-            --dark: #121212;
-            --darker: #0A0A0A;
-            --light-text: #E0E0E0;
-        }
+.app-container {
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
+
+.scrollable-section {
+    height: 1000px; 
+    overflow-y: auto; 
+    border: 1px solid #2e0553; 
+    padding: 10px; 
+}
+
+:root {
+    --primary: #6A1B9A;
+    --secondary: #D500F9;
+    --accent: #00B8D4;
+    --dark: #121212;
+    --darker: #0A0A0A;
+    --light-text: #E0E0E0;
+}
+
+body {
+    background-image: url('https://images6.alphacoders.com/121/1218905.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--light-text);
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
         
-        body {
-            background-color: var(--dark);
-            background-image: url('https://cdn.bhdw.net/im/jujutsu-kaisen-yuuji-itadori-kento-nanami-wallpaper-89921_w635.webp');
-            color: var(--light-text);
-            font-family: 'Roboto', sans-serif;
-            overflow-x: hidden;
-        }
+h1, h2, h3, h4 {
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 0.05em;
+}
+    
+.app-container {
+    overflow-x: hidden;
+}
+/* Estilos para el formulario de comentarios */
+form {
+    background-color: rgba(31, 41, 55, 0.8); /* gris oscuro transparente */
+    padding: 1.5rem;                        /* espacio interno */
+    border-radius: 0.5rem;                   /* esquinas redondeadas */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);  /* sombra sutil */
+    backdrop-filter: blur(4px);             /* desenfoque del fondo si hay algo detrás */
+}
+
+.formText{
+    text-align: center;
+}
+input, textarea {
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+button {
+    background-color: #7c3aed; /* morado */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s;
+}
+button:hover {
+    background-color: #6d28d9;
+}
+.seccion-community {
+    background-color: rgba(31, 41, 55, 0.8); /* gris oscuro transparente */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+/* */
+
+
+.hero-banner {
+    min-height: 90vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(10,10,10,0.9)), url('https://cdn.pixabay.com/photo/2017/08/01/00/38/man-2562357_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+
+    /* Alineación de contenido */
+    display: flex;               /* activa flexbox */
+    justify-content: center;     /* alinea horizontalmente */
+    align-items: center;         /* alinea verticalmente */
+    text-align: center;          /* centra texto */
+    flex-direction: column;      
+}
         
-        h1, h2, h3, h4 {
-            font-family: 'Kanit', sans-serif;
-            letter-spacing: 0.05em;
-        }
-        
-        .app-container {
-            overflow-x: hidden;
-        }
-        
-        .hero-banner {
-            min-height: 85vh;
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(10,10,10,0.9)), url('https://cdn.pixabay.com/photo/2017/08/01/00/38/man-2562357_1280.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: relative;
-        }
-        
-        .hero-banner::after {
+.hero-banner::after {
             content: "";
             position: absolute;
             bottom: 0;
             width: 100%;
             height: 150px;
             background: linear-gradient(to top, var(--dark), transparent);
-        }
+}
         
-        .logo-container {
+.logo-container {
             position: relative;
             text-shadow: 0 0 20px rgba(213, 0, 249, 0.5);
-        }
+}
         
-        .logo-text {
+.logo-text {
             font-family: 'Bebas Neue', sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.2em;
@@ -72,7 +133,6 @@
         }
         
         .character-grid {
-            display: none;
             transition: all 0.5s ease;
         }
         
@@ -126,7 +186,6 @@
         }
         
         .videos-grid {
-            display: none;
             transition: all 0.5s ease;
         }
         

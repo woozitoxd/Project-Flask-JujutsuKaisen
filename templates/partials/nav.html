@@ -7,16 +7,18 @@
             <span></span>
             <span></span>
         </div>
-        <img width="150"h src="{{ url_for('static', filename='img/Jujutsu_Kaisen_logo.png') }}" alt="Logo Jujutsu Kaisen" class="h-10 ml-4">
+        <a href="javascript:void(0)"><img width="150"h src="{{ url_for('static', filename='img/Jujutsu_Kaisen_logo.png') }}" alt="Logo Jujutsu Kaisen" class="h-10 ml-4"></a>
     </div>
 
     <!-- Navegación desktop -->
     <div class="hidden md:flex items-center space-x-8">
-        <a href="javascript:void(0)" class="hover:text-purple-400 transition" id="nav-home">Inicio</a>
-        <a href="javascript:void(0)" class="hover:text-purple-400 transition" id="nav-characters">Personajes</a>
-        <a href="javascript:void(0)" class="hover:text-purple-400 transition" id="nav-videos">Videos</a>
-        <a href="javascript:void(0)" class="hover:text-purple-400 transition">Manga</a>
+        <a href="{{ url_for('home') }}#hero-banner" class="hover:text-purple-400 transition">Inicio</a>
+        <a href="{{ url_for('home') }}#character-section" class="hover:text-purple-400 transition">Personajes</a>
+        <a href="{{ url_for('home') }}#videos-section" class="hover:text-purple-400 transition">Videos</a>
+        <a href="https://readjjk-manga.com" target="_blank" class="hover:text-purple-400 transition">Manga</a>
+        <a href="{{ url_for('comunidad.index') }}" class="hover:text-purple-400 transition">Comunidad</a>
     </div>
+
 
     <div class="dark-mode-toggle ml-4">
         <div class="toggle-indicator"></div>
@@ -26,10 +28,9 @@
 <!-- Menú móvil -->
 <div class="mobile-menu md:hidden" id="mobile-menu">
     <div class="px-6 py-4">
-        <a href="javascript:void(0)" class="block py-3 border-b border-gray-700 hover:text-purple-400 transition">Inicio</a>
+        <a href="javascript:void(0)" class="block py-3 border-b border-gray-700 hover:text-purple-400 transition mobile-nav-item">Inicio</a>
         <a href="javascript:void(0)" class="block py-3 border-b border-gray-700 hover:text-purple-400 transition mobile-nav-item" data-target="characters">Personajes</a>
         <a href="javascript:void(0)" class="block py-3 border-b border-gray-700 hover:text-purple-400 transition mobile-nav-item" data-target="videos">Videos</a>
-        <a href="javascript:void(0)" class="block py-3 border-b border-gray-700 hover:text-purple-400 transition">Manga</a>
-        <a href="javascript:void(0)" class="block py-3 border-b border-gray-700 hover:text-purple-400 transition">Noticias</a>
+        <a href="https://readjjk-manga.com" target="_blank" class="block py-3 border-b border-gray-700 hover:text-purple-400 transition">Manga</a>
     </div>
 </div>

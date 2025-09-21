@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Jujutsu Kaisen{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+
+        <!-- NAVBAR -->
+        <header class="fixed top-0 left-0 w-full bg-opacity-80 bg-black backdrop-filter backdrop-blur-md z-50">
+            {% include 'partials/nav.html' %}
+        </header>
+    
+        <!-- CONTENIDO -->
+        <main class="pt-16">
+            {% block content %}{% endblock %}
+        </main>
+    
+            <!-- Footer -->
+            <footer class="py-12 bg-gray-900" style="bottom: 0">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="mb-6 md:mb-0">
+                            <h2 class="text-2xl font-bold mb-4">
+                                <span class="text-purple-400">JUJUTSU</span> <span class="text-blue-400">KAISEN</span>
+                            </h2>
+                            <p class="text-gray-400">© 2025 MAPPA / Todos los derechos reservados</p>
+                            <p class="text-gray-400">Página realizada por Téc. Elias Contrera</p>
+                        </div>
+                        
+                        <div class="flex space-x-6">
+                            <a href="javascript:void(0)" class="text-gray-400 hover:text-purple-400 transition">
+                                <i class="fab fa-twitter text-2xl"></i>
+                            </a>
+                            <a href="javascript:void(0)" class="text-gray-400 hover:text-purple-400 transition">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </a>
+                            <a href="javascript:void(0)" class="text-gray-400 hover:text-purple-400 transition">
+                                <i class="fab fa-youtube text-2xl"></i>
+                            </a>
+                            <a href="javascript:void(0)" class="text-gray-400 hover:text-purple-400 transition">
+                                <i class="fab fa-discord text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between">
+                        <div class="flex flex-col md:flex-row md:space-x-8">
+                            <a href="javascript:void(0)" class="mb-3 md:mb-0 text-gray-400 hover:text-purple-400 transition">Términos de uso</a>
+                            <a href="javascript:void(0)" class="mb-3 md:mb-0 text-gray-400 hover:text-purple-400 transition">Política de privacidad</a>
+                            <a href="javascript:void(0)" class="mb-3 md:mb-0 text-gray-400 hover:text-purple-400 transition">Contacto</a>
+                        </div>
+                        
+                        <div class="mt-4 md:mt-0">
+                            <p class="text-sm text-gray-500">Basado en el manga de Gege Akutami</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+    </div>
+
+</body>
+</html>

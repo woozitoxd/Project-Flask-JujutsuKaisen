@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Comunidad - Jujutsu Kaisen{% endblock %}
+
+{% block content %}
+    <!-- NAVBAR -->
+
+    <header class="fixed top-0 left-0 w-full bg-opacity-80 bg-black backdrop-filter backdrop-blur-md z-50">
+        {% include 'partials/nav.html' %}
+    </header>
+
+    <section class="seccion-community">
+
+        <h1 class="text-3xl font-bold text-purple-400 mb-6 formText">Foro de la comunidad</h1>
+        <img src="" alt="">
+        <!-- Formulario -->
+        <form method="POST" class="">
+            <input type="text" name="autor" placeholder="Tu nombre" required class="w-full p-2 mb-4 border border-gray-300 rounded text-black">
+            <textarea name="comentario" placeholder="Tu comentario" required class="w-full p-2 mb-4 border border-gray-300 rounded text-black"></textarea>
+            <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Lista de comentarios -->
+    <div class="space-y-4">
+        {% for comentario in comentarios %}
+            <div class="mb-4 p-4 border border-gray-300 rounded bg-gray-800">
+                <p class="font-semibold text-purple-300">{{ comentario.autor }}</p>
+                <p class="text-white">{{ comentario.comentario }}</p>
+            </div>
+        {% else %}
+            <p class="text-gray-400">No hay comentarios aún. ¡Sé el primero!</p>
+        {% endfor %}
+    </div>
+{% endblock %}
