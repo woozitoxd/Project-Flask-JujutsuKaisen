@@ -15,15 +15,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:wght@400;700&family=Roboto:wght@300;400;700&display=swap">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleCommunity.css') }}">
 
 </head>
 <body>
     <div class="app-container">
-        <!-- Top Bar (incluye nav desde partial) -->
-        <header class="fixed top-0 left-0 w-full bg-opacity-80 bg-black backdrop-filter backdrop-blur-md z-50">
-            {% include 'partials/nav.html' %}
-        </header>
         
         <!-- Overlay -->
         <div class="overlay" id="overlay"></div>

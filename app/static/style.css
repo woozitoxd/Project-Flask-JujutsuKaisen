@@ -382,3 +382,13 @@ button:hover {
                 height: 220px;
             }
         }
+
+/* Estilos para el botón de login/registro */
+.tab {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background 0.3s ease;
+}
+.active-tab {
+    background: linear-gradient(to right, #7e22ce, #3b82f6);
+}

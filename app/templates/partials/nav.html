@@ -12,17 +12,21 @@
 
     <!-- Navegación desktop -->
     <div class="hidden md:flex items-center space-x-8">
-        <a href="{{ url_for('home') }}#hero-banner" class="hover:text-purple-400 transition">Inicio</a>
-        <a href="{{ url_for('home') }}#character-section" class="hover:text-purple-400 transition">Personajes</a>
-        <a href="{{ url_for('home') }}#videos-section" class="hover:text-purple-400 transition">Videos</a>
+        <a href="{{ url_for('main.home') }}#hero-banner" class="hover:text-purple-400 transition">Inicio</a>
+        <a href="{{ url_for('main.home') }}#character-section" class="hover:text-purple-400 transition">Personajes</a>
+        <a href="{{ url_for('main.home') }}#videos-section" class="hover:text-purple-400 transition">Videos</a>
         <a href="https://readjjk-manga.com" target="_blank" class="hover:text-purple-400 transition">Manga</a>
         <a href="{{ url_for('comunidad.index') }}" class="hover:text-purple-400 transition">Comunidad</a>
+
+
+<button id="authBtn"
+    class="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-4 py-2 rounded transition">
+    Iniciar Sesión / Registrarse
+</button>
+<div id="authDropdown" class="hidden absolute right-4 mt-2 w-48 bg-white rounded-md shadow-lg z-50"></div>
     </div>
 
 
-    <div class="dark-mode-toggle ml-4">
-        <div class="toggle-indicator"></div>
-    </div>
 </div>
 
 <!-- Menú móvil -->

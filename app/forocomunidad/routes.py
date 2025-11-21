@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from . import comunidad_bp
 
 #Simulación de una base de datos en memoria de comentarios
+
+comunidad_bp = Blueprint("comunidad", __name__, template_folder="templates")
 
 comentarios = [] # Lista para almacenar comentarios
 

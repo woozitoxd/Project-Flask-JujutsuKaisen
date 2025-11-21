@@ -164,3 +164,44 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const authBtn = document.getElementById("authBtn");
+    const authModal = document.getElementById("authModal");
+    const closeModal = document.getElementById("closeModal");
+
+    const loginTab = document.getElementById("loginTab");
+    const registerTab = document.getElementById("registerTab");
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+
+    // Mostrar modal
+    authBtn.addEventListener("click", () => {
+        authModal.classList.remove("hidden");
+        authModal.classList.add("flex");
+    });
+
+    // Cerrar modal
+    closeModal.addEventListener("click", () => {
+        authModal.classList.add("hidden");
+        authModal.classList.remove("flex");
+    });
+
+    // Cambiar entre pestañas
+    loginTab.addEventListener("click", () => {
+        loginForm.classList.remove("hidden");
+        registerForm.classList.add("hidden");
+        loginTab.classList.add("active-tab");
+        registerTab.classList.remove("active-tab");
+    });
+
+    registerTab.addEventListener("click", () => {
+        registerForm.classList.remove("hidden");
+        loginForm.classList.add("hidden");
+        registerTab.classList.add("active-tab");
+        loginTab.classList.remove("active-tab");
+    });
+});
+// Script para manejar el modal de login/registro
